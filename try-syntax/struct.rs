@@ -22,6 +22,15 @@ impl User{
     fn get_username(&self) -> bool {
         self.active
     }
+
+    fn get_user(username: String) -> User {
+        User {
+            username,
+            email: String::from("someone@example.com"),
+            sign_in_count: 1,
+            active: false,
+        }
+    }
 }
 
 fn main(){
@@ -29,10 +38,13 @@ fn main(){
 
     user1.email = String::from("anotheremail@example.com");
 
-    println!( "The user is {:#?} ", user1.get_username());
+    println!( "The user is {:#?} ", &user1.get_username());
 
     let sq = Rectangle::square(3);
     println!( "The user is {:#?} ", sq);
+
+    let u = User::get_user(String::from("someusername123"));
+    println!( "The user is {:#?} ", u);
 }
 
 fn build_user(email: String, username: String) -> User {
