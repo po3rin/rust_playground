@@ -45,7 +45,9 @@ fn main() {
 
     // ownership
     string();
-    ownership()
+    ownership();
+    string_print();
+    dangle()
 
 }
 
@@ -89,4 +91,21 @@ fn gives_ownership() -> String {             // gives_ownershipは、戻り値�
 fn takes_and_gives_back(a_string: String) -> String { // a_stringがスコープに入る。
 
     a_string  // a_stringが返され、呼び出し元関数にムーブされる
+}
+
+fn string_print(){
+    let mut s = String::from("hello");
+    let (len, se) = calculate_length(&mut s);
+    println!("{}, {}, {}", s, len, se);
+}
+
+fn calculate_length(s: &mut String) -> (usize, String) {
+    s.push_str(", world");
+    (s.len(), s.to_string())
+}
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
 }
