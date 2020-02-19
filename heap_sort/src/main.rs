@@ -90,6 +90,6 @@ mod tests {
 
 fn main() {
     let mut list = List::new(vec![16, 4, 10, 14, 7, 9, 3, 2, 8, 1]);
-    max_heapify(&mut list, 1);
+    heap_sort(&mut list);
     println!("{:?}", list.data)
 }
