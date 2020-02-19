@@ -1,5 +1,5 @@
 [package]
-name = "algo"
+name = "heap_sort"
 version = "0.1.0"
 authors = ["po3rin <abctail30@gmail.com>"]
 edition = "2018"
